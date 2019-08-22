@@ -1,16 +1,19 @@
 <?php
 
+
 class Unit
 {
     private $name;
     private $health;
     private $damage;
     private $level;
-    function __construct(string $name, int $health, int $damage, int $level)
+    private $race;
+    private $element;
+    function __construct(int $health, int $damage, int $level, Race $race, Element $element)
     {
-        $this->name = $name;      //if level is 1, add no bonus
+        $this->name = $element->Name() . " " . $race->Name();      //if level is 1, add no bonus
         $this->health = $health + ($level > 1 ? 25 * $level : 0);
-        $this->damage = $damage + ($level > 1 ? 25 * $level : 0);
+        $this->damage = $damage + ($level > 1 ? 2 * $level : 0);
         $this->level = $level;
     }
 

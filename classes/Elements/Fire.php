@@ -1,27 +1,17 @@
 <?php
 require('./Element.php');
 require('./Interface/ElementType.php');
-class Fire extends Element implements ElementType
+class Fire extends Element
 {
+
     function __construct()
     {
-        parent::__construct("Fire");
+        //Earth,Water,Fire,Wind,Corrupt
+        parent::__construct(1.5, 0.25, 0.50, 1.0, 0.75, "Fire");
     }
 
-    public function applyElementalEffectsDamage(\double $damage, \Element $element)
+    public function dialog()
     {
-        switch ($element->name) {
-            case "Fire":
-                return 0;
-                break;
-            case "Water":
-                return $damage / 2;
-                break;
-            case "Earth":
-                return $damage * 2;
-                break;
-            default:
-                return $damage;
-        }
+        return "You will burn!";
     }
 }

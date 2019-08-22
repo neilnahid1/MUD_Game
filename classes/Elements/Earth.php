@@ -1,22 +1,15 @@
 <?php
 require('./Element.php');
 require('./Interface/Element.php');
-class Earth implements Element
+class Earth extends Element
 {
-    public function applyElementalEffectsDamage(\double $damage, \Element $element)
+    function __construct()
     {
-        switch ($element->name) {
-            case "Earth":
-                return 0;
-                break;
-            case "Fire":
-                return $damage / 2;
-                break;
-            case "Wind":
-                return $damage * 2;
-                break;
-            default:
-                return $damage;
-        }
+        //Earth,Water,Fire,Wind,Corrupt
+        parent::__construct(0.50, 1.0, 0.25, 1.5, 0.75, "Earth");
+    }
+    public function dialog()
+    {
+        return "I have the nature by my side.";
     }
 }

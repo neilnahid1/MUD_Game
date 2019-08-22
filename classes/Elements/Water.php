@@ -1,22 +1,16 @@
 <?php
 require('./Element.php');
 require('./Interface/ElementalEffects.php');
-class Earth implements ElementalEffects
+class Earth extends Element
 {
-    public function applyElementalEffectsDamage(\double $damage, \Element $element)
+
+    function __construct()
     {
-        switch ($element->name) {
-            case "Water":
-                return 0;
-                break;
-            case "Wind":
-                return $damage / 2;
-                break;
-            case "Fire":
-                return $damage * 2;
-                break;
-            default:
-                return $damage;
-        }
+        //Earth,Water,Fire,Wind,Corrupt
+        parent::__construct(0.50, 1.0, 1.5, 1.0, 0.75, "Water");
+    }
+    public function dialog()
+    {
+        return "You will be cleansed by the might of the waters!";
     }
 }
