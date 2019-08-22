@@ -1,6 +1,7 @@
 <?php
-require('./Element.php');
-require('./Interface/ElementType.php');
+
+namespace Elements;
+
 class Fire extends Element
 {
 
@@ -12,6 +13,6 @@ class Fire extends Element
 
     public function dialog()
     {
-        return "You will burn!";
+        return "Fiery inferno!";
     }
 }

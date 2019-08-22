@@ -1,6 +1,7 @@
 <?php
-require('./Element.php');
-require('./Interface/ElementalEffects.php');
+
+namespace Elements;
+
 class Wind extends Element
 {
     function __construct()

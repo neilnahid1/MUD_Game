@@ -1,4 +1,7 @@
 <?php
+
+namespace Races;
+
 abstract class Race
 {
     private $name;
@@ -9,8 +12,17 @@ abstract class Race
         $this->healthMultiplier = $healthMultiplier;
         $this->damageMultiplier = $damageMultiplier;
     }
-    public function Name(){
+    public function Name()
+    {
         return $this->name;
+    }
+    public function HealthMultiplier()
+    {
+        return $this->healthMultiplier;
+    }
+    public function DamageMultiplier()
+    {
+        return $this->damageMultiplier;
     }
     abstract public function dialog();
 }

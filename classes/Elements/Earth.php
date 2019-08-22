@@ -1,6 +1,7 @@
 <?php
-require('./Element.php');
-require('./Interface/Element.php');
+
+namespace Elements;
+
 class Earth extends Element
 {
     function __construct()

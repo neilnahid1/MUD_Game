@@ -1,5 +1,7 @@
 <?php
 
+namespace Classes\Elements;
+
 class Corruption extends Element
 {
     function __construct()

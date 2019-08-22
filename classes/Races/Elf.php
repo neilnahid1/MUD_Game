@@ -1,4 +1,7 @@
 <?php
+
+namespace Races;
+
 class Elf extends Race
 {
     function __construct()

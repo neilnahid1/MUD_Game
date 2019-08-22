@@ -1,4 +1,7 @@
 <?
+
+namespace Classes\Elements;
+
 abstract class Element
 {
     private $name;
