@@ -27,11 +27,11 @@ This is where you come in. You got the mark of the 4 elements, as the wise wizar
 - Each room may contain some monsters that the player must defeat in order to clear the room and proceed to another.
 - The player must defeat the 4 mini-bosses that contains one of the elements in order to unlock the door for the final boss.
 - The player must kill the final boss in order to win the game.
-- 
+
 ## Features
 - Level progression - higher level means higher damage/resistance.
 - Elements affects damages/resistances. Fire>Earth>Wind>Water>Fire
-- Procedurally generated rooms(ambitious much?)
+- ~~Procedurally generated rooms(ambitious much?)~~
 	
 ## How to set up
 later.
