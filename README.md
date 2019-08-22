@@ -1,3 +1,4 @@
+
 # SUD GAME by Neil
 
 ## Lore
@@ -29,9 +30,16 @@ This is where you come in. You got the mark of the 4 elements, as the wise wizar
 - The player must kill the final boss in order to win the game.
 
 ## Features
+- Turn-based battle system.
 - Level progression - higher level means higher damage/resistance.
 - Elements affects damages/resistances. Fire>Earth>Wind>Water>Fire
 - ~~Procedurally generated rooms(ambitious much?)~~
-	
+
+## Diagrams
+
+### Elements Diagram
+![enter image description here](https://lh3.googleusercontent.com/0lNKS6aZLCnMsWIx_ygfnADR8jtJjt74n3PYTdB8bQT7ovLaeIPWbADaA018vFO24Oi-9X4I3Zk)
+### Unit Class Diagram
+![enter image description here](https://lh3.googleusercontent.com/rwfPyW1_QaqCeP6yx_9Ksbwl4khIqmMjiSJhIncnzzw86na9GxFxzt3qKGAhooWc9K3YwXOM0ko "Unit Class Diagram")
 ## How to set up
 later.
