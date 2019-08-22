@@ -29,9 +29,9 @@ This is where you come in. You got the mark of the 4 elements, as the wise wizar
 - The player must kill the final boss in order to win the game.
 - 
 ## Features
-	Level progression - higher level means higher damage/resistance.
-	Elements affects damages/resistances. Fire>Earth>Wind>Water>Fire
-	Procedurally generated rooms(ambitious much?)
+- Level progression - higher level means higher damage/resistance.
+- Elements affects damages/resistances. Fire>Earth>Wind>Water>Fire
+- Procedurally generated rooms(ambitious much?)
 	
 ## How to set up
 later.
