@@ -1,6 +1,6 @@
 <?php
 
-namespace Elements;
+namespace Classes\Elements;
 
 class Wind extends Element
 {

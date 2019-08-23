@@ -1,6 +1,6 @@
 <?php
 
-namespace Races;
+namespace Classes\Races;
 
 class Elf extends Race
 {

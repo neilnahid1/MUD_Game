@@ -1,4 +1,5 @@
 <?php
+namespace Classes\Races;
 
 class Dwarves extends Race
 {

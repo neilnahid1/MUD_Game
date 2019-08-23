@@ -1,4 +1,5 @@
 <?php
+namespace Classes\Races;
 
 class Human extends Race
 {

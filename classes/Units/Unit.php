@@ -1,10 +1,8 @@
 <?php
 
-namespace Units;
+namespace Classes\Units;
 
-use Elements\Element;
-use Races\Race;
-
+include_once("/Users/n-152/Desktop/mud/autoload.php");
 class Unit
 {
     private $name;
@@ -16,7 +14,7 @@ class Unit
     public function __construct(int $health, int $damage, int $level, Race $race, Element $element)
     {
         $this->name = $element->Name() . " " . $race->Name();
-                                                             //if level is 1, add no bonus
+        //if level is 1, add no bonus
         $this->health = $health * $race->HealthMultiplier() + ($level > 1 ? 25 * $level : 0);
         $this->damage = $damage * $race->DamageMultiplier() + ($level > 1 ? 2 * $level : 0);
         $this->level = $level;

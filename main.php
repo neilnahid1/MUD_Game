@@ -2,4 +2,4 @@
 
 
 include_once "./autoload.php";
-$unit = new Unit(15, 15, 1, new Elf(), new Fire());
+$unit = new Classes\Units\Unit(15, 15, 1, new Classes\Races\Elf(), new Classes\Elements\Fire());
