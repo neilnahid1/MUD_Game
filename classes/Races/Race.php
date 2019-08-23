@@ -7,7 +7,7 @@ abstract class Race
     private $name;
     private $healthMultiplier;
     private $damageMultiplier;
-    function __construct(float $healthMultiplier,float $damageMultiplier,string $name)
+    function __construct(float $healthMultiplier, float $damageMultiplier, string $name)
     {
         $this->healthMultiplier = $healthMultiplier;
         $this->damageMultiplier = $damageMultiplier;
