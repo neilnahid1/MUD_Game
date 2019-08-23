@@ -23,11 +23,12 @@ class Unit
         $this->element = $element;
     }
 
-    function attack(Unit $enemy)
+    public function attack(Unit $enemy)
     {
-        echo "$this->name hits " . $enemy->getName();
-        echo "\n$this->name dealt $this->damage\n";
-        $enemy->receiveDamage($this->damage);
+        echo "$this->name hits " . $enemy->Name(). "\n";
+        $damage =  $this->element->applyElementalDamage($this, $enemy);
+        echo "It deals $damage.\n";
+        $enemy->receiveDamage($damage);
     }
     function receiveDamage(int $damage)
     {
@@ -35,18 +36,35 @@ class Unit
         if ($this->health <= 0)
             echo $this->name . " is dead.";
     }
-    function getHealth()
+    public function getHealth()
     {
         return $this->health;
     }
-    function getName()
+    public function Name()
     {
         return $this->name;
     }
-    public function toString(){
+    public function Damage()
+    {
+        return $this->damage;
+    }
+    public function Element()
+    {
+        return $this->element;
+    }
+    public function Race()
+    {
+        return $this->race;
+    }
+    public function toString()
+    {
         $description = "Name: $this->name\n";
         $description .= "Health: $this->health\n";
         $description .= "Damage: $this->damage\n";
         return $description;
+    }
+    public function dialog()
+    {
+        return $this->race->dialog() . "\n" . $this->element->dialog();
     }
 }

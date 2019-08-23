@@ -2,7 +2,7 @@
 
 namespace Classes\Elements;
 
-class Earth extends Element
+class Water extends Element
 {
 
     function __construct()
