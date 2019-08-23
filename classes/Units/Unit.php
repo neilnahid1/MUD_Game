@@ -2,7 +2,9 @@
 
 namespace Classes\Units;
 
-include_once("/Users/n-152/Desktop/mud/autoload.php");
+use Classes\Elements\Element;
+use Classes\Races\Race;
+
 class Unit
 {
     private $name;
@@ -14,9 +16,8 @@ class Unit
     public function __construct(int $health, int $damage, int $level, Race $race, Element $element)
     {
         $this->name = $element->Name() . " " . $race->Name();
-        //if level is 1, add no bonus
-        $this->health = $health * $race->HealthMultiplier() + ($level > 1 ? 25 * $level : 0);
-        $this->damage = $damage * $race->DamageMultiplier() + ($level > 1 ? 2 * $level : 0);
+        $this->health = $health * $race->HealthMultiplier() + ($level > 1 ? 25 * $level : 0); //if level is 1, add no bonus
+        $this->damage = $damage * $race->DamageMultiplier() + ($level > 1 ? 2 * $level : 0); //if level is 1, add no bonus
         $this->level = $level;
         $this->race = $race;
         $this->element = $element;
@@ -41,5 +42,11 @@ class Unit
     function getName()
     {
         return $this->name;
+    }
+    public function toString(){
+        $description = "Name: $this->name\n";
+        $description .= "Health: $this->health\n";
+        $description .= "Damage: $this->damage\n";
+        return $description;
     }
 }

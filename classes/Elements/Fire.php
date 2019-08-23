@@ -1,6 +1,7 @@
 <?php
 
 namespace Classes\Elements;
+
 class Fire extends Element
 {
 

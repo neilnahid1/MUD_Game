@@ -1,11 +1,12 @@
 <?php
+
 namespace Classes\Races;
 
-class Dwarves extends Race
+class Dwarf extends Race
 {
     function __construct()
     {
-        parent::__construct(1.50, 0.50);
+        parent::__construct(1.50, 0.50, "Dwarf");
     }
     public function dialog()
     {
