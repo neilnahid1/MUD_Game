@@ -8,35 +8,31 @@ use Classes\Races\Race;
 class Unit
 {
     private $name;
-    private $health;
+    private $baseHealth;
     private $damage;
+    private $health;
+    private $baseDamage;
     private $level;
     private $race;
     private $element;
-    public function __construct(int $health, int $damage, int $level, Race $race, Element $element)
-    {
+    private $experienceDrop;
+
+    public function __construct(
+        int $baseHealth,
+        int $baseDamage,
+        int $level,
+        Race $race,
+        Element $element
+    ) {
         $this->name = $element->Name() . " " . $race->Name();
-        $this->health = $health * $race->HealthMultiplier() + ($level > 1 ? 25 * $level : 0); //if level is 1, add no bonus
-        $this->damage = $damage * $race->DamageMultiplier() + ($level > 1 ? 2 * $level : 0); //if level is 1, add no bonus
-        $this->level = $level;
+        $this->baseHealth = $baseHealth;
+        $this->baseDamage = $baseDamage;
+        $this->setLevel($level);
         $this->race = $race;
         $this->element = $element;
     }
-
-    public function attack(Unit $enemy)
-    {
-        echo "$this->name hits " . $enemy->Name(). "\n";
-        $damage =  $this->element->applyElementalDamage($this, $enemy);
-        echo "It deals $damage.\n";
-        $enemy->receiveDamage($damage);
-    }
-    function receiveDamage(int $damage)
-    {
-        $this->health -= $damage;
-        if ($this->health <= 0)
-            echo $this->name . " is dead.";
-    }
-    public function getHealth()
+    # GETTER METHODS
+    public function Health()
     {
         return $this->health;
     }
@@ -48,14 +44,24 @@ class Unit
     {
         return $this->damage;
     }
-    public function Element()
+    public function Element(): Element
     {
         return $this->element;
     }
-    public function Race()
+    public function Race(): Race
     {
         return $this->race;
     }
+    # END OF GETTERS
+    # START OF SETTERS
+    private function setLevel(int $level)
+    {
+        $this->level = $level;
+        $this->adjustDamageBasedOnLevel();
+        $this->adjustHealthBasedOnLevel();
+        $this->adjustExperienceDropAmount();
+    }
+    # END OF SETTERS
     public function toString()
     {
         $description = "Name: $this->name\n";
@@ -63,8 +69,48 @@ class Unit
         $description .= "Damage: $this->damage\n";
         return $description;
     }
+
+    //returns a string of dialog based on race and element
     public function dialog()
     {
         return $this->race->dialog() . "\n" . $this->element->dialog();
+    }
+
+    //adjusts damage based on level
+    private function adjustDamageBasedOnLevel()
+    {
+        $this->damage = $this->baseDamage;
+        $bonusDamage = $this->baseDamage * DAMAGE_LEVELUP_MULTIPLIER; // bonus damage per level
+        $this->damage += $bonusDamage * $this->level;
+    }
+
+    //adjusts health based on level
+    private function adjustHealthBasedOnLevel()
+    {
+        $this->health = $this->baseHealth;
+        $bonusHealth = $this->baseHealth * DAMAGE_LEVELUP_MULTIPLIER; // bonus health per level
+        $this->health += $bonusHealth * $this->level;
+    }
+    //adjusts experience drop amount based on level
+    function adjustExperienceDropAmount()
+    {
+        $this->experienceDrop = $this->level * 50;
+    }
+
+    //attacks and damages enemy
+    public function attack(Unit $enemy)
+    {
+        echo "$this->name hits " . $enemy->Name() . "\n";
+        $damage =  $this->element->applyElementalDamage($this, $enemy);
+        echo "It deals $damage.\n";
+        $enemy->receiveDamage($damage);
+    }
+
+    //receives damage whenever it is being attacked
+    function receiveDamage(int $damage)
+    {
+        $this->health -= $damage;
+        if ($this->health <= 0)
+            echo $this->name . " is dead.";
     }
 }
