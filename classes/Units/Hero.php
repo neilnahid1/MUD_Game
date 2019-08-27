@@ -12,7 +12,7 @@ class Hero extends Unit
     public $elements;
     function __construct(Race $race, Element $element, string $name, int $level)
     {
-        parent::__construct(200, 50, 1, $race, $element);
+        parent::__construct(HERO_BASE_HEALTH, HERO_BASE_DAMAGE, 1, $race, $element);
         $this->name = $name;
         $this->elements[$element->Name()] = $element; //adds the starting element to the array of elements;
         $this->experience = 0;

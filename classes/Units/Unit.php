@@ -99,7 +99,7 @@ class Unit
     //adjusts experience drop amount based on level
     function adjustExperienceDropAmount()
     {
-        $this->experienceDrop = $this->level * 50;
+        $this->experienceDrop = $this->level * XP_DROP_RATE;
     }
 
     //attacks and damages enemy

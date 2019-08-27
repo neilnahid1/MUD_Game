@@ -22,7 +22,7 @@ abstract class UnitBuilder
     {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
-        return new Unit(100, 10, $level, $raceObject, $elementObject);
+        return new Unit(UNIT_BASE_HEALTH, UNIT_BASE_DAMAGE, $level, $raceObject, $elementObject);
     }
     public static function buildHero(string $race, string $element, string $name, int $level = 1): Hero
     {
