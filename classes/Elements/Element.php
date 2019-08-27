@@ -12,16 +12,45 @@ abstract class Element
     public $fireDamageMultiplier;
     public $windDamageMultiplier;
     public $corruptionDamageMultiplier;
-    function __construct($earthMult, $waterMult, $fireMult, $windMult, $corruptMult, $name)
-    {
-        $this->earthDamageMultiplier = $earthMult;
-        $this->waterDamageMultiplier = $waterMult;
-        $this->fireDamageMultiplier = $fireMult;
-        $this->windDamageMultiplier = $windMult;
+
+    /**
+     * Constructor 
+     * @param float $earthMult damage multiplier against Earth
+     * 
+     * @param float $waterMult damage multiplier against water elements
+     * 
+     * damagemultiplier against fire elements
+     * @param float $fireMult
+     * 
+     * damage multiplier against wind elements
+     * @param float $windMult
+     * 
+     * damage multiplier against corrupt elements
+     * @param float $corruptMult
+     * 
+     */
+
+    function __construct(
+        float $earthMult,
+        float $waterMult,
+        float $fireMult,
+        float $windMult,
+        float $corruptMult,
+        string $name
+    ) {
+        var_dump("sd");
+        $this->earthDamageMultiplier      = $earthMult;
+        $this->waterDamageMultiplier      = $waterMult;
+        $this->fireDamageMultiplier       = $fireMult;
+        $this->windDamageMultiplier       = $windMult;
         $this->corruptionDamageMultiplier = $corruptMult;
         $this->name = $name;
     }
-    public function Name()
+
+    /**
+     * @return string
+     */
+    public function Name(): string
     {
         return $this->name;
     }

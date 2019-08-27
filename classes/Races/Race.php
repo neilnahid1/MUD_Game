@@ -13,6 +13,8 @@ abstract class Race
         $this->damageMultiplier = $damageMultiplier;
         $this->name = $name;
     }
+
+    # getters
     public function Name()
     {
         return $this->name;

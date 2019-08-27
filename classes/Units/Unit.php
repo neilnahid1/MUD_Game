@@ -75,34 +75,48 @@ class Unit
         return $description;
     }
 
-    //returns a string of dialog based on race and element
+    /**
+     * returns a string of dialog based on race and element
+     * 
+     */
     public function dialog()
     {
         return $this->race->dialog() . "\n" . $this->element->dialog();
     }
 
-    //adjusts damage based on level
+    /**
+     * adjusts the units damage based on level
+     */
     private function adjustDamageBasedOnLevel()
     {
-        $this->damage = $this->baseDamage;
-        $bonusDamage = $this->baseDamage * DAMAGE_LEVELUP_MULTIPLIER; // bonus damage per level
-        $this->damage += $bonusDamage * $this->level;
+        $this->damage  = $this->baseDamage;
+        $bonusDamage   = $this->baseDamage * DAMAGE_LEVELUP_MULTIPLIER; // bonus damage per level
+        $this->damage  += $bonusDamage * $this->level;
     }
 
-    //adjusts health based on level
+    /**
+     * adjusts health based on level
+     */
     private function adjustHealthBasedOnLevel()
     {
         $this->health = $this->baseHealth;
-        $bonusHealth = $this->baseHealth * DAMAGE_LEVELUP_MULTIPLIER; // bonus health per level
+        $bonusHealth  = $this->baseHealth * DAMAGE_LEVELUP_MULTIPLIER; // bonus health per level
         $this->health += $bonusHealth * $this->level;
     }
-    //adjusts experience drop amount based on level
+    /**
+     * adjusts the experience that the unit drops whenever it is killed. 
+     * amount is based on level
+     * 
+     */
     function adjustExperienceDropAmount()
     {
         $this->experienceDrop = $this->level * XP_DROP_RATE;
     }
 
-    //attacks and damages enemy
+    /**
+     * attacks and damages enemy
+     * @param Unit $enemy the unit that will be attacked.
+     */
     public function attack(Unit $enemy)
     {
         echo "$this->name hits " . $enemy->Name() . "\n";
@@ -111,7 +125,10 @@ class Unit
         $enemy->receiveDamage($damage);
     }
 
-    //receives damage whenever it is being attacked
+    /**
+     * receives damage whenever it is being attacked
+     * @param int $damage the damage to be deducted from the health
+     */
     function receiveDamage(int $damage)
     {
         $this->health -= $damage;

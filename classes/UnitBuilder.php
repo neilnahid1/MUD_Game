@@ -18,18 +18,32 @@ use Classes\Units\Unit;
 
 abstract class UnitBuilder
 {
-    public static function BuildUnit(string $race, string $element, int $level = 1): Unit
-    {
+
+    //function for creating a new unit object
+    public static function BuildUnit(
+        string $race,
+        string $element,
+        int $level = 1
+    ): Unit {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
         return new Unit(UNIT_BASE_HEALTH, UNIT_BASE_DAMAGE, $level, $raceObject, $elementObject);
     }
-    public static function buildHero(string $race, string $element, string $name, int $level = 1): Hero
-    {
+
+    //function for creating a new hero object
+    public static function buildHero(
+        string $race,
+        string $element,
+        string $name,
+        int $level = 1
+    ): Hero {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
         return new Hero($raceObject, $elementObject, $name, $level);
     }
+
+    //returns an instance of race based on given parameters
+    //the returned value will be used for creating new Unit/Hero object
     private static function getRaceInstance(string $race): Race
     {
         switch ($race) {
@@ -44,6 +58,9 @@ abstract class UnitBuilder
                 die;
         }
     }
+
+    //returns an instance of element based on given element
+    //the returned value will be used for creating new Unit/Hero object
     private static function getElementInstance(string $element): Element
     {
         switch ($element) {
