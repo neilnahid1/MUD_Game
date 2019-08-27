@@ -7,14 +7,14 @@ use Classes\Races\Race;
 
 class Unit
 {
-    private $name;
+    protected $name;
     private $baseHealth;
     private $damage;
     private $health;
     private $baseDamage;
     private $level;
     private $race;
-    private $element;
+    protected $element;
     private $experienceDrop;
 
     public function __construct(
@@ -52,6 +52,10 @@ class Unit
     {
         return $this->race;
     }
+    public function ExpDropAmount(): int
+    {
+        return $this->experienceDrop;
+    }
     # END OF GETTERS
     # START OF SETTERS
     private function setLevel(int $level)
@@ -67,6 +71,7 @@ class Unit
         $description = "Name: $this->name\n";
         $description .= "Health: $this->health\n";
         $description .= "Damage: $this->damage\n";
+        $description .= "Level: $this->level\n";
         return $description;
     }
 

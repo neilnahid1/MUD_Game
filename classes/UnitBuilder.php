@@ -13,15 +13,22 @@ use Classes\Races\Dwarf;
 use Classes\Races\Elf;
 use Classes\Races\Human;
 use Classes\Races\Race;
+use Classes\Units\Hero;
 use Classes\Units\Unit;
 
 abstract class UnitBuilder
 {
-    public static function BuildUnit(string $race, string $element): Unit
+    public static function BuildUnit(string $race, string $element, int $level = 1): Unit
     {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
-        return new Unit(100, 10, 1, $raceObject, $elementObject);
+        return new Unit(100, 10, $level, $raceObject, $elementObject);
+    }
+    public static function buildHero(string $race, string $element, string $name, int $level = 1): Hero
+    {
+        $raceObject = self::getRaceInstance($race);
+        $elementObject = self::getElementInstance($element);
+        return new Hero($raceObject, $elementObject, $name, $level);
     }
     private static function getRaceInstance(string $race): Race
     {

@@ -9,24 +9,34 @@ class Hero extends Unit
 {
     private $experience;
     private $maxExperience;
-    private $elements;
-    function __construct(Race $race, Element $element)
+    public $elements;
+    function __construct(Race $race, Element $element, string $name, int $level)
     {
         parent::__construct(200, 50, 1, $race, $element);
-        $this->elements[$element->Name()] = $element;
+        $this->name = $name;
+        $this->elements[$element->Name()] = $element; //adds the starting element to the array of elements;
         $this->experience = 0;
         $this->maxExperience = 100;
     }
-    function addExperience(int $exp)
+    public function addExperience(int $exp)
     {
         $this->experience += $exp;
         while ($this->experience >= $this->maxExperience) {
-            levelUp();
+            $this->levelUp();
         }
     }
-    function levelUp()
+    private function levelUp()
     {
         $this->level += 1;
         $this->experience -= $this->maxExperience;
+    }
+    public function switchToElement(string $element)
+    {
+        $this->element = $this->elements[$element];
+    }
+    public function toString()
+    {
+        $unitInfo = parent::toString();
+        return $unitInfo . "Exp: $this->experience\n";
     }
 }
