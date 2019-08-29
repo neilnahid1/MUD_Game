@@ -55,3 +55,6 @@ Damage is the amount the character deals to the enemy's health.
 
 
 4.3 Riddle Challenge - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge. 
+
+## 5. Win Condition 
+The player needs to find the exit door in order to win the game.
