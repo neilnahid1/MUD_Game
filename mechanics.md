@@ -47,6 +47,7 @@ Damage is the amount the character deals to the enemy's health.
 
 
 4.2 Battle Challenge - A type of challenge which the player battles a monster
+
  	4.2.1 Battle Interface Commands
 	 	- Attack - the player attacks the monster
 	 	- Use Item - the player uses an item from one his inventory and the effect varies from different items.
