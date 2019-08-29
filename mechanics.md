@@ -39,11 +39,11 @@ Damage is the amount of damage the character deals to the enemy's health.
 
 	**Battle Challenge** - A type of challenge which the player battles a monster
 
-	Battle Interface Commands
-	 - Attack - the player attacks the monster
-	 - Use Item - the player uses an item from one his inventory and the effect varies from different items.
-	 - Swap element - swaps a desired element.
-	 - Run - The player runs away from the battle.
+		Battle Interface Commands
+		 - Attack - the player attacks the monster
+		 - Use Item - the player uses an item from one his inventory and the effect varies from different items.
+		 - Swap element - swaps a desired element.
+		 - Run - The player runs away from the battle.
 
 	**Riddle Challenge** - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge.
 
