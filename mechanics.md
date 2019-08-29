@@ -1,33 +1,42 @@
 #  Mechanics
-## rooms
-- There will be 4 rooms for 4 different elements(Fire, Wind, Earth, Water). We will call the 4 rooms "Elemental Rooms".
-- Each elemental room have two normal rooms that contain "challenges".  
-- The room leading to final boss stays locked until the player has acquired the 4 elements by defeating the bosses from "Elemental Rooms"
-## battle
-- The battle system is turn-based.
-- The player always start the turn.
-- The player gains experience after defeating the enemy.
-- If the player defeats one of the elemental bosses, he will acquire the element of that boss.
-## challenges
-- battle challenge - the player will battle a monster
-- riddle(not really) - the player will solve a mathematical problem.(randomly generated, maybe). The player will gain experience upon completing the "riddle".
+## 1. Rooms
+1.1 Room Definition
+The rooms is represented as a square with each side leading to another room.
+1.2 Room Navigation
+The player can navigate to different rooms using the commands provided by the game.
+1.3 Unlocking rooms
+Some rooms requires a key. Keys may be found in another rooms, Keys can also be obtained by completing a challenge. Challenges comes in a form of defeating a monster, or answering a riddle.
+## 2. Character
+2.1 Character definition
+Characters are controlled by the player, characters can navigate between different rooms, complete challenges, and use items.
+2.2 Character Stats
+Characters have health and damage. Health and damage is used in battle. Health is how much damage the character can absorb. Once health reaches 0 or below, the game is over. 
+Damage is the amount the character deals to the enemy's health.
+2.3 Character Inventory
+Characters can carry items and is stored in their inventories. Inventories can be accessed through an interface provided by the game.
+1.4 Character Classes
+1.4.1 Elf - High damage but low health
+1.4.2 Human - Normal damage and health
+1.4.3 Dwarf - Low damage but high health
+## 3. Items
+3.1 Items Definition
+Items are used to aid the player in battle, increase the player's stats, or unlock different rooms.
+3.2 Items can be obtained by completing a challenge or exploring parts of the room.
+3.3 Items Usage
+Different items have different uses and effects. It can be used during a battle, or it can be used to unlock a door. 
+3.4 Item types
+3.4.1 Key - a type of item that can unlock doors.
+3.4.2 Bomb - a type of item that can be used during a battle and it deals a lot of damage.
+3.4.3 Health Potion - a type of item that can be used during a battle and it heals a certain amount of the player's HP.
+## 4. Challenge
+4.1 Challenges Definition
+Challenges needs to be completed in order for player to progress to different rooms.
+4.2 Battle Challenge
+A type of challenge which the player battles a monster
+ - 4.2.1 - Battle Interface Commands
+	 - Attack - the player attacks the monster
+	 - Use Item - the player uses an item from one his inventory and the effect varies from different items.
+	 - Run - The player runs away from the battle.
 
-## Player Abilities
-- player only have 1 ability at the start of the game which is "attack".
-- the player can switch between elements once he/she acquired it from one of the elemental bosses.
-- upon acquiring all 4 elements, the player will unlock the ability "Elemental Beam" which deals a ton of damage, it requires a minimum of 5 turns in order to use this ability.
-## progression
-- The player is required to acquire the 4 elements in order to unlock the final boss
-- The player must travel the 2 "challenge" rooms first before getting to the elemental room.
-- The player gains experience after completing a challenge/defeating a boss.
-## win condition
-- In order to win the game, the player must defeat the Final boss which is the element of corruption.
-
-# Diagrams
-### Map of the dungeon
-![enter image description here](https://lh3.googleusercontent.com/bP0ZJfqJD7SgLivD4bGBOLsgX3ndarR-UWC6wRzETK4UPJXOVdwXTMYsXN6AYHw7AXjO7kowF9I)
-
-### Elements Counters Diagram
-![enter image description here](https://lh3.googleusercontent.com/0lNKS6aZLCnMsWIx_ygfnADR8jtJjt74n3PYTdB8bQT7ovLaeIPWbADaA018vFO24Oi-9X4I3Zk)
-### Unit Class Diagram(Under construction)
-![enter image description here](https://lh3.googleusercontent.com/rwfPyW1_QaqCeP6yx_9Ksbwl4khIqmMjiSJhIncnzzw86na9GxFxzt3qKGAhooWc9K3YwXOM0ko "Unit Class Diagram")
+4.3 Riddle Challenge
+A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge. 
