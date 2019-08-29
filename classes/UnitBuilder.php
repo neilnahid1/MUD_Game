@@ -22,24 +22,18 @@ abstract class UnitBuilder
     //function for creating a new unit object
     public static function BuildUnit(
         string $race,
-        string $element,
-        int $level = 1
+        string $element
     ): Unit {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
-        return new Unit(UNIT_BASE_HEALTH, UNIT_BASE_DAMAGE, $level, $raceObject, $elementObject);
+        return new Unit(UNIT_BASE_HEALTH, UNIT_BASE_DAMAGE, $raceObject, $elementObject);
     }
 
     //function for creating a new hero object
-    public static function buildHero(
-        string $race,
-        string $element,
-        string $name,
-        int $level = 1
-    ): Hero {
+    public static function buildHero(string $race, string $element,string $name): Hero {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
-        return new Hero($raceObject, $elementObject, $name, $level);
+        return new Hero($raceObject, $elementObject, $name);
     }
 
     //returns an instance of race based on given parameters

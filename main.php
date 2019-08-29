@@ -20,7 +20,8 @@ function main()
     $hero->elements['Earth'] = new Earth();
     $hero->elements['Wind'] = new Wind();
     battle($hero, $unit);
-    echo $hero->dialog();die;
+    echo $hero->dialog();
+    die;
 }
 
 function battle(Hero $player, Unit $enemy)
@@ -99,15 +100,13 @@ function swapElementDialog(Hero $hero, Unit $enemy)
             echo $enemy->toString();
             swapElementDialog($hero, $enemy);
     }
-    echo "You swapped to " . $hero->Element()->Name() . " Element.";
+    echo "You swapped to " . $hero->Element()->Name() . " Element.\n";
 }
 
 //dialog for when the player wins a battle
 function victorious(Hero $hero, Unit $enemy)
 {
     echo "You emerged victorious.\n";
-    echo "You earned " . $enemy->ExpDropAmount() . " experience\n";
-    $hero->addExperience($enemy->ExpDropAmount());
 }
 
 //dialog for when the player loses a battle

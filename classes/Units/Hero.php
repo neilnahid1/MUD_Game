@@ -13,15 +13,13 @@ use Classes\Races\Race;
  */
 class Hero extends Unit
 {
-    private $experience;
-    private $maxExperience;
     public $elements;
-    function __construct(Race $race, Element $element, string $name, int $level)
+    public $inventory;
+    function __construct(Race $race, Element $element, string $name)
     {
         parent::__construct(
             HERO_BASE_HEALTH, #base health
             HERO_BASE_DAMAGE, #base damage
-            1,                #level
             $race,            #race
             $element          #element
         );
@@ -29,34 +27,6 @@ class Hero extends Unit
         $this->elements[$element->Name()] = $element; //adds the starting element to the array of elements;
         $this->experience = 0;
         $this->maxExperience = 100;
-    }
-
-
-    /**
-     * 
-     * adds experience to the hero
-     * 
-     * this is used whenever the hero completes a challenge
-     * 
-     * challenges may come in a form of battle or solving a riddle
-     */
-    public function addExperience(int $exp)
-    {
-        $this->experience += $exp;
-        while ($this->experience >= $this->maxExperience) {
-            $this->levelUp();
-        }
-    }
-
-    /**
-     * 
-     * used to increment the hero's level when experience >= maxExperience
-     * 
-     * */
-    private function levelUp()
-    {
-        $this->level += 1;
-        $this->experience -= $this->maxExperience;
     }
     /**
      * function for when the user switches to another element
