@@ -1,5 +1,5 @@
 #  Mechanics
-## Rooms
+## 1. Rooms
 **Room Definition** - The rooms is represented as a square with each side(direction) leading to another room.
 
 **Room Navigation** - The player can navigate to different rooms using the commands provided by the game.
@@ -12,7 +12,7 @@ Examples:
 	1 - scan the drawer
 	2 - open the chest
 
-## Character
+## 2. Character
 **Character definition** - Characters are controlled by the player, characters can navigate between different rooms, complete challenges, and use items.
 
 **Character Stats** - Characters have health and damage. Health and damage is used in battle. Health is how much damage the character can absorb. Once health reaches 0 or below, the game is over. 
@@ -26,7 +26,7 @@ Damage is the amount of damage the character deals to the enemy's health.
 - Elf - High damage but low health
 - Human - Normal damage and health
 - Dwarf - Low damage but high health
-## Items
+## 3. Items
 
 **Items Definition** - Items are used to aid the player in battle, increase the player's stats, or unlock different rooms.
 
@@ -34,7 +34,7 @@ Damage is the amount of damage the character deals to the enemy's health.
 
 **Items Usage** - Different items have different uses and effects. It can be used during a battle, or it can be used to unlock a door. 
 
-## Challenge
+## 4. Challenge
 **Challenges Definition** - Challenges needs to be completed in order for player to progress to different rooms.
 
 	**Battle Challenge** - A type of challenge which the player battles a monster
@@ -47,7 +47,7 @@ Damage is the amount of damage the character deals to the enemy's health.
 
 	**Riddle Challenge** - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge.
 
-## Elemental Effects Mechanic
+## 5. Elemental Effects Mechanic
 On top of the base stats which is health and damage, the character also have a property called element. The element affects the damage output on both the player and the enemy. For example, if the player is of water type and the enemy is fire, the player deals more damage to the enemy since water counters fire and the enemy deals less damage to the player because the player wields an element that counters that of an enemy.
 
 **Element Counters**
@@ -57,15 +57,15 @@ On top of the base stats which is health and damage, the character also have a p
 	Wind counters Water
 	Water Counters Fire
 	
-## Progression
+## 6. Progression
 The player needs to acquire the 4 elements in order to unlock the final door for the final boss.
 The 4 elements can be obtained by defeating the mini-bosses that holds the elements.
 The acquired element can be used by the player during the battle by switching between them.
 
-## Mini Bosses
+## 7. Mini Bosses
 There are 4 mini bosses, each one having an element. After the player defeats a mini boss, it will absorb the element of that boss, and the element can then be used by the player on later battles to switch between them.
 
-## Enemy Units
+## 8. Enemy Units
 Enemy units have a race which determines their health and damage. They also have one element type. They can only execute one command which is attack.
-## 7. Win Condition
+## 9. Win Condition
 The player needs to defeat the final boss in order to win the game.
