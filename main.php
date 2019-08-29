@@ -13,8 +13,11 @@ use Classes\Units\Unit;
 main();
 function main()
 {
+    //initialise the hero and a sample unit
     $hero = UnitBuilder::buildHero("Elf", "Basic", "Neil", 1);
     $unit = UnitBuilder::BuildUnit("Dwarf", "Earth", 1);
+
+    //pre populate the elements acquired by the hero
     $hero->elements['Fire'] = new Fire();
     $hero->elements['Water'] = new Water();
     $hero->elements['Earth'] = new Earth();
@@ -48,9 +51,9 @@ function battleOptions(Hero $hero, Unit $enemy)
     echo "VS.\n";
     echo $enemy->toString();
     $prompt = "What would you like to do?\n";
-    $prompt .= "atk      - Attack the enemy\n";
-    $prompt .= "swap   - swaps between acquired elements\n";
-    $prompt .= "run      - Run away from battle\n";
+    $prompt .= "atk  - Attack the enemy\n";
+    $prompt .= "swap - swaps between acquired elements\n";
+    $prompt .= "run  - Run away from battle\n";
     $prompt .= "select option: ";
     $input = readline($prompt);
     echo "-------------------------------------\n";

@@ -36,14 +36,4 @@ class Hero extends Unit
     {
         $this->element = $this->elements[$element];
     }
-
-    /**
-     * string representation of an object
-     * 
-     * */
-    public function toString()
-    {
-        $unitInfo = parent::toString();
-        return $unitInfo . "Exp: $this->experience\n";
-    }
 }

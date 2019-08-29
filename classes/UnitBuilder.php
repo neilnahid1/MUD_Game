@@ -19,7 +19,11 @@ use Classes\Units\Unit;
 abstract class UnitBuilder
 {
 
-    //function for creating a new unit object
+    /**
+     * @param string $race choices: "Elf", "Human", "Dwarf"
+     * @param string $element choices: "Fire","Earth","Wind","Earth"
+     * @param string $name name of your character
+     */
     public static function BuildUnit(
         string $race,
         string $element
@@ -29,7 +33,12 @@ abstract class UnitBuilder
         return new Unit(UNIT_BASE_HEALTH, UNIT_BASE_DAMAGE, $raceObject, $elementObject);
     }
 
-    //function for creating a new hero object
+
+    /**
+     * @param string $race choices: "Elf", "Human", "Dwarf"
+     * @param string $element choices: "Fire","Earth","Wind","Earth"
+     * @param string $name name of your character
+     */
     public static function buildHero(string $race, string $element,string $name): Hero {
         $raceObject = self::getRaceInstance($race);
         $elementObject = self::getElementInstance($element);
