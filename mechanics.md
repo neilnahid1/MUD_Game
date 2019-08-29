@@ -16,7 +16,6 @@
 2.2 Character Stats - Characters have health and damage. Health and damage is used in battle. Health is how much damage the character can absorb. Once health reaches 0 or below, the game is over. 
 Damage is the amount the character deals to the enemy's health.
 
-
 2.3 Character Inventory - Characters can carry items and is stored in their inventories. Inventories can be accessed through an interface provided by the game.
 
 
@@ -35,13 +34,6 @@ Damage is the amount the character deals to the enemy's health.
 
 3.3 Items Usage - Different items have different uses and effects. It can be used during a battle, or it can be used to unlock a door. 
 
-
-3.4 Item types
-
-	3.4.1 Key - a type of item that can unlock doors.
-	3.4.2 Bomb - a type of item that can be used during a battle and it deals a lot of damage.
-	3.4.3 Health Potion - a type of item that can be used during a battle and it heals a certain amount of the player's HP.
-
 ## 4. Challenge
 4.1 Challenges Definition - Challenges needs to be completed in order for player to progress to different rooms.
 
@@ -54,7 +46,16 @@ Damage is the amount the character deals to the enemy's health.
 		- Run - The player runs away from the battle.
 
 
-4.3 Riddle Challenge - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge. 
+4.3 Riddle Challenge - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge.
 
-## 5. Win Condition 
+## 5. Elemental Effects Mechanic
+5.1 On top of the base stats which is health and damage, the character also have a property called element. The element affects the damage output on both the player and the enemy. For example, if the player is of water type and the enemy is fire, the player deals more damage to the enemy since water counters fire and the enemy deals less damage to the player because the player wields an element that counters of that enemy.
+
+5.2 Element Counters
+
+	Fire counters Earth
+	Earth counters Wind
+	Wind counters Water
+	Water Counters Fire
+## 6. Win Condition 
 The player needs to find the exit door in order to win the game.
