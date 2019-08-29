@@ -21,6 +21,7 @@ Damage is the amount the character deals to the enemy's health.
 
 
 2.4 Character Classes
+
 	2.4.1 Elf - High damage but low health
 	2.4.2 Human - Normal damage and health
 	2.4.3 Dwarf - Low damage but high health
@@ -36,6 +37,7 @@ Damage is the amount the character deals to the enemy's health.
 
 
 3.4 Item types
+
 	3.4.1 Key - a type of item that can unlock doors.
 	3.4.2 Bomb - a type of item that can be used during a battle and it deals a lot of damage.
 	3.4.3 Health Potion - a type of item that can be used during a battle and it heals a certain amount of the player's HP.
