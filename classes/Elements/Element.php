@@ -38,7 +38,6 @@ abstract class Element
         float $corruptMult,
         string $name
     ) {
-        var_dump("sd");
         $this->earthDamageMultiplier      = $earthMult;
         $this->waterDamageMultiplier      = $waterMult;
         $this->fireDamageMultiplier       = $fireMult;
