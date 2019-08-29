@@ -49,7 +49,7 @@ Damage is the amount the character deals to the enemy's health.
 4.3 Riddle Challenge - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge.
 
 ## 5. Elemental Effects Mechanic
-5.1 On top of the base stats which is health and damage, the character also have a property called element. The element affects the damage output on both the player and the enemy. For example, if the player is of water type and the enemy is fire, the player deals more damage to the enemy since water counters fire and the enemy deals less damage to the player because the player wields an element that counters of that enemy.
+5.1 On top of the base stats which is health and damage, the character also have a property called element. The element affects the damage output on both the player and the enemy. For example, if the player is of water type and the enemy is fire, the player deals more damage to the enemy since water counters fire and the enemy deals less damage to the player because the player wields an element that counters that of an enemy.
 
 5.2 Element Counters
 
