@@ -2,7 +2,7 @@
 
 namespace Classes;
 
-use Classes\Elements\Basic;
+use Classes\Elements\Physical;
 use Classes\Elements\Corruption;
 use Classes\Elements\Earth;
 use Classes\Elements\Element;
@@ -77,8 +77,8 @@ abstract class UnitBuilder
                 return new Earth();
             case "Wind":
                 return new Wind();
-            case "Basic":
-                return new Basic();
+            case "Physical":
+                return new Physical();
             default:
                 echo "invalid element";
                 die;

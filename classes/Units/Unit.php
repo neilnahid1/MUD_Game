@@ -56,7 +56,11 @@ class Unit
         $description .= "Damage: $this->damage\n";
         return $description;
     }
-
+    public function displayInfo(){
+        echo "\033[0;36m Name: $this->name\n\033[0m";
+        echo "\033[0;32m Health: $this->health\n\033[0m";
+        echo "\033[0;31m Damage: $this->damage\n\033[0m";
+    }
     /**
      * returns a string of dialog based on race and element
      * 
@@ -73,8 +77,8 @@ class Unit
     public function attack(Unit $enemy)
     {
         echo "$this->name hits " . $enemy->Name() . "\n";
-        $damage =  $this->element->applyElementalDamage($this, $enemy);
-        echo "It deals $damage.\n";
+        $damage =  $this->element->applyElementResistance($this, $enemy); // applies the element resistance
+        echo "\033[0;31m It deals $damage.\n\033[0m";
         $enemy->receiveDamage($damage);
     }
 
