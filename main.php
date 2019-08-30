@@ -54,7 +54,6 @@ function battleOptions(Hero $hero, Unit $enemy)
     $prompt = "What would you like to do?\n";
     $prompt .= "atk  - Attack the enemy\n";
     $prompt .= "swap - swaps between acquired elements\n";
-    $prompt .= "run  - Run away from battle\n";
     $prompt .= "select option: ";
     $input = readline($prompt);
     echo "-------------------------------------\n";
