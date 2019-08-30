@@ -28,36 +28,74 @@ This results in spawning different kind of monsters, battling other monsters dif
 This is where you come in. You got the mark of the 4 elements, as the wise wizards would put it, you are the chosen one, the restorer of peace, the last prophet, the purifier of corruption, the one true king. ~~The avatar~~. Your quest is to restore the balance of the 4 elements and defeat the element of corruption.
 
 
-##  Mechanics
-### rooms
-- There will be 4 rooms for 4 different elements(Fire, Wind, Earth, Water). We will call the 4 rooms "Elemental Rooms".
-- Each elemental room have two normal rooms that contain "challenges".  
-- The room leading to final boss stays locked until the player has acquired the 4 elements by defeating the bosses from "Elemental Rooms"
-### battle
-- The battle system is turn-based.
-- The player always start the turn.
-- The player gains experience after defeating the enemy.
-- If the player defeats one of the elemental bosses, he will acquire the element of that boss.
-### challenges
-- battle challenge - the player will battle a monster
-- riddle(not really) - the player will solve a mathematical problem.(randomly generated, maybe). The player will gain experience upon completing the "riddle".
+#  Mechanics
+## 1. Rooms
+**Room Definition** - The rooms is represented as a square with each side(direction) leading to another room.
 
-### Player Abilities
-- player only have 1 ability at the start of the game which is "attack".
-- the player can switch between elements once he/she acquired it from one of the elemental bosses.
-- upon acquiring all 4 elements, the player will unlock the ability "Elemental Beam" which deals a ton of damage, it requires a minimum of 5 turns in order to use this ability.
-### progression
-- The player is required to acquire the 4 elements in order to unlock the final boss
-- The player must travel the 2 "challenge" rooms first before getting to the elemental room.
-- The player gains experience after completing a challenge/defeating a boss.
-### win condition
-- In order to win the game, the player must defeat the Final boss which is the element of corruption.
+**Room Navigation** - The player can navigate to different rooms using the commands provided by the game.
 
-## Diagrams
-### Map of the dungeon
-![enter image description here](https://lh3.googleusercontent.com/bP0ZJfqJD7SgLivD4bGBOLsgX3ndarR-UWC6wRzETK4UPJXOVdwXTMYsXN6AYHw7AXjO7kowF9I)
+**Unlocking rooms** - Some rooms requires a key. Keys may be found in by exploring rooms, Keys can also be obtained by completing a challenge. Challenges comes in a form of defeating a monster, or answering a riddle.
 
-### Elements Counters Diagram
-![enter image description here](https://lh3.googleusercontent.com/0lNKS6aZLCnMsWIx_ygfnADR8jtJjt74n3PYTdB8bQT7ovLaeIPWbADaA018vFO24Oi-9X4I3Zk)
-### Unit Class Diagram(Under construction)
-![enter image description here](https://lh3.googleusercontent.com/rwfPyW1_QaqCeP6yx_9Ksbwl4khIqmMjiSJhIncnzzw86na9GxFxzt3qKGAhooWc9K3YwXOM0ko "Unit Class Diagram")
+**Exploring rooms** - When a player is in a certain room, the player can have the option to explore the room to find for items. To explore an object, the player will select an appropriate command to explore that object.
+Examples:
+
+	1 - scan the drawer
+	2 - open the chest
+
+## 2. Character
+**Character definition** - Characters are controlled by the player, characters can navigate between different rooms, complete challenges, and use items.
+
+**Character Stats** - Characters have health and damage. Health and damage is used in battle. Health is how much damage the character can absorb. Once health reaches 0 or below, the game is over. 
+Damage is the amount of damage the character deals to the enemy's health.
+
+**Character Inventory** - Characters can carry items and is stored in their inventories. Inventories can be accessed through an interface provided by the game.
+
+**Character Abilities(During battle)** - The player have an ability "element swap" that swaps between elements to counter enemy unit's element. 
+
+**Character Classes**
+- Elf - High damage but low health
+- Human - Normal damage and health
+- Dwarf - Low damage but high health
+## 3. Items
+
+**Items Definition** - Items are used to aid the player in battle, increase the player's stats, or unlock different rooms.
+
+**Item Acquisition** - Items can be obtained by completing a challenge or exploring parts of the room.
+
+**Items Usage** - Different items have different uses and effects. It can be used during a battle, or it can be used to unlock a door. 
+
+## 4. Challenge
+**Challenges Definition** - Challenges needs to be completed in order for player to progress to different rooms.
+
+	**Battle Challenge** - A type of challenge which the player battles a monster
+
+		Battle Interface Commands
+		 - Attack - the player attacks the monster
+		 - Use Item - the player uses an item from one his inventory and the effect varies from different items.
+		 - Swap element - swaps a desired element.
+		 - Run - The player runs away from the battle.
+
+	**Riddle Challenge** - A type of challenge of which the player is given a riddle and needs to reply with the correct answer in order to complete the challenge.
+
+## 5. Elemental Effects Mechanic
+On top of the base stats which is health and damage, the character also have a property called element. The element affects the damage output on both the player and the enemy. For example, if the player is of water type and the enemy is fire, the player deals more damage to the enemy since water counters fire and the enemy deals less damage to the player because the player wields an element that counters that of an enemy.
+
+**Element Counters**
+
+	Fire counters Earth
+	Earth counters Wind
+	Wind counters Water
+	Water Counters Fire
+	
+## 6. Progression
+The player needs to acquire the 4 elements in order to unlock the final door for the final boss.
+The 4 elements can be obtained by defeating the mini-bosses that holds the elements.
+The acquired element can be used by the player during the battle by switching between them.
+
+## 7. Mini Bosses
+There are 4 mini bosses, each one having an element. After the player defeats a mini boss, it will absorb the element of that boss, and the element can then be used by the player on later battles to switch between them.
+
+## 8. Enemy Units
+Enemy units have a race which determines their health and damage. They also have one element type. They can only execute one command which is attack.
+## 9. Win Condition
+The player needs to defeat the final boss in order to win the game.
