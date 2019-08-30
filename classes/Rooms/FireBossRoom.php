@@ -1,9 +1,12 @@
 <?php
 
-class FireBossRoom extends Room
+namespace Classes\Rooms;
+
+class ElementalRoom extends Room
 {
-    function __construct(ArrayObject $adjascentRooms, string $description, bool $isUnlocked)
+    function __construct(array $adjascentRooms, string $description, bool $isUnlocked)
     {
+
         parent::__construct($adjascentRooms, $description, $isUnlocked);
     }
 }

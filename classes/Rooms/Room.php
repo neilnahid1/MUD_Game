@@ -1,12 +1,14 @@
 <?php
 
+namespace Classes\Rooms;
+
 abstract class Room
 {
     public $adjascentRooms;
     public $description;
     public $isUnlocked;
 
-    function __construct(ArrayObject $adjascentRooms, string $description, bool $isUnlocked)
+    function __construct(array $adjascentRooms, string $description, bool $isUnlocked)
     {
         $this->adjascentRooms = $adjascentRooms;
         $this->description = $description;
@@ -16,7 +18,7 @@ abstract class Room
     /**
      * prints to the terminal command for traversable rooms
      */
-    function printNavigateCommands()
+    private function displayNavigateRoomCommands()
     {
         if (!is_null($this->adjascentRooms['N']))
             echo "N - to go north of the room.";
@@ -27,10 +29,9 @@ abstract class Room
         if (!is_null($this->adjascentRooms['S']))
             echo "S - to go south of the room.";
     }
-
     /**
      * prints to the terminal the commands for exploreObjects
      */
-    abstract function printExploreObjectCommands();
-    abstract function battleEnemyDialog();
+    abstract function displayExplorationCommands();
+    abstract function displayBattleCommands();
 }
