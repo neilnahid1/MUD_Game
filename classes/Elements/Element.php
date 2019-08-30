@@ -39,20 +39,12 @@ abstract class Element
         float $windResistance,
         float $corruptionResistance
     ) {
-<<<<<<< HEAD
-        $this->earthDamageMultiplier      = $earthMult;
-        $this->waterDamageMultiplier      = $waterMult;
-        $this->fireDamageMultiplier       = $fireMult;
-        $this->windDamageMultiplier       = $windMult;
-        $this->corruptionDamageMultiplier = $corruptMult;
-=======
         $this->physicalResistance   = $physicalResistance;
         $this->earthResistance      = $earthResistance;
         $this->waterResistance      = $waterResistance;
         $this->fireResistance       = $fireResistance;
         $this->windResistance       = $windResistance;
         $this->corruptionResistance = $corruptionResistance;
->>>>>>> 32c6ca49a41d5a21a05a61297e15ce23d882a4f3
         $this->name = $name;
     }
 
