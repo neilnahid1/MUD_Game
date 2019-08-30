@@ -29,6 +29,7 @@ function main()
 
 function battle(Hero $player, Unit $enemy)
 {
+    echo "You've encounted a battle.\n";
     while (true) {
         battleOptions($player, $enemy);
         if ($enemy->Health() <= 0) {

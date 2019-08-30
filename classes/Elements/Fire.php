@@ -2,6 +2,8 @@
 
 namespace Classes\Elements;
 
+use Classes\Units\Unit;
+
 /**
  * Fire counters Earth but weak against water
  */
@@ -25,7 +27,7 @@ class Fire extends Element
     /**
      * returns the appropriate damage based on defenders resistance to this element
      */
-    public function applyElementResistance(\Classes\Units\Unit $attacker, \Classes\Units\Unit $defender) : int
+    public function applyElementResistance(Unit $attacker, Unit $defender) : int
     {
         $damage = $attacker->Damage();
         return $damage - ($damage * $defender->Element()->fireResistance);

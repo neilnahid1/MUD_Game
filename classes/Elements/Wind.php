@@ -2,6 +2,8 @@
 
 namespace Classes\Elements;
 
+use Classes\Units\Unit;
+
 /**
  * strong against water weak against earth
  */
@@ -24,7 +26,7 @@ class Wind extends Element
     /**
      * returns the appropriate damage based on defenders resistance to this element
      */
-    public function applyElementResistance(\Classes\Units\Unit $attacker, \Classes\Units\Unit $defender): int
+    public function applyElementResistance(Unit $attacker, Unit $defender): int
     {
         $damage = $attacker->Damage();
         return $damage - ($damage * $defender->Element()->windResistance);
