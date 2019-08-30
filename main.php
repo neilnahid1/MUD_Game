@@ -13,8 +13,11 @@ use Classes\Units\Unit;
 main();
 function main()
 {
-    $hero = UnitBuilder::buildHero("Elf", "Basic", "Neil", 1);
+    //initialise the hero and a sample unit
+    $hero = UnitBuilder::buildHero("Elf", "Physical", "Neil", 1);
     $unit = UnitBuilder::BuildUnit("Dwarf", "Earth", 1);
+
+    //pre populate the elements acquired by the hero
     $hero->elements['Fire'] = new Fire();
     $hero->elements['Water'] = new Water();
     $hero->elements['Earth'] = new Earth();
@@ -44,21 +47,23 @@ function battle(Hero $player, Unit $enemy)
 function battleOptions(Hero $hero, Unit $enemy)
 {
     echo "-------------------------------------\n";
-    echo $hero->toString();
+    $hero->displayInfo();
     echo "VS.\n";
-    echo $enemy->toString();
+    $enemy->displayInfo();
+    echo "-------------------------------------\n";
     $prompt = "What would you like to do?\n";
-    $prompt .= "atk      - Attack the enemy\n";
-    $prompt .= "swap   - swaps between acquired elements\n";
-    $prompt .= "run      - Run away from battle\n";
+    $prompt .= "atk  - Attack the enemy\n";
+    $prompt .= "swap - swaps between acquired elements\n";
     $prompt .= "select option: ";
     $input = readline($prompt);
     echo "-------------------------------------\n";
     switch ($input) {
         case "atk":
+            system('clear');
             $hero->attack($enemy);
             break;
         case "swap":
+            system('clear');
             swapElementDialog($hero, $enemy);
             break;
         default:
@@ -82,22 +87,27 @@ function swapElementDialog(Hero $hero, Unit $enemy)
     $input = readline($prompt);
     switch ($input) {
         case "fire":
+            system('clear');
             $hero->switchToElement("Fire");
             break;
         case "water":
+            system('clear');
             $hero->switchToElement("Water");
             break;
         case "wind":
+            system('clear');
             $hero->switchToElement("Wind");
             break;
         case "earth":
+            system('clear');
             $hero->switchToElement("Earth");
             break;
         default:
+            system('clear');
             readline("Invalid input, try again.");
             system('clear');
-            echo $hero->toString();
-            echo $enemy->toString();
+            $hero->displayInfo();
+            $enemy->displayInfo();
             swapElementDialog($hero, $enemy);
     }
     echo "You swapped to " . $hero->Element()->Name() . " Element.\n";

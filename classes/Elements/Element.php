@@ -6,13 +6,13 @@ use Classes\Units\Unit;
 
 abstract class Element
 {
-    private $name;
-    public $earthDamageMultiplier;
-    public $waterDamageMultiplier;
-    public $fireDamageMultiplier;
-    public $windDamageMultiplier;
-    public $corruptionDamageMultiplier;
-
+    protected $name;
+    protected $physicalResistance;
+    protected $earthResistance;
+    protected $waterResistance;
+    protected $fireResistance;
+    protected $windResistance;
+    protected $corruptionResistance;
     /**
      * Constructor 
      * @param float $earthMult damage multiplier against Earth
@@ -31,18 +31,28 @@ abstract class Element
      */
 
     function __construct(
-        float $earthMult,
-        float $waterMult,
-        float $fireMult,
-        float $windMult,
-        float $corruptMult,
-        string $name
+        string $name,
+        float $physicalResistance,
+        float $earthResistance,
+        float $waterResistance,
+        float $fireResistance,
+        float $windResistance,
+        float $corruptionResistance
     ) {
+<<<<<<< HEAD
         $this->earthDamageMultiplier      = $earthMult;
         $this->waterDamageMultiplier      = $waterMult;
         $this->fireDamageMultiplier       = $fireMult;
         $this->windDamageMultiplier       = $windMult;
         $this->corruptionDamageMultiplier = $corruptMult;
+=======
+        $this->physicalResistance   = $physicalResistance;
+        $this->earthResistance      = $earthResistance;
+        $this->waterResistance      = $waterResistance;
+        $this->fireResistance       = $fireResistance;
+        $this->windResistance       = $windResistance;
+        $this->corruptionResistance = $corruptionResistance;
+>>>>>>> 32c6ca49a41d5a21a05a61297e15ce23d882a4f3
         $this->name = $name;
     }
 
@@ -53,25 +63,22 @@ abstract class Element
     {
         return $this->name;
     }
-    public function applyElementalDamage(Unit $attacker, Unit $defender)
-    {
-        switch ($defender->Element()->Name()) {
-            case "Fire":
-                return $attacker->Damage() * $attacker->Element()->fireDamageMultiplier;
-            case "Water":
-                return $attacker->Damage() * $attacker->Element()->waterDamageMultiplier;
-            case "Corruption":
-                return $attacker->Damage() * $attacker->Element()->corruptionDamageMultiplier;
-            case "Wind":
-                return $attacker->Damage() * $attacker->Element()->windDamageMultiplier;
-            case "Earth":
-                return $attacker->Damage() * $attacker->Element()->earthDamageMultiplier;
-            case "Basic":
-                return $attacker->Damage();
-            default:
-                echo "Invalid element|applyElementalDamage";
-                die;
-        }
-    }
-    public abstract function dialog();
+    public abstract function applyElementResistance(Unit $attacker, Unit $defender): int;
+    // switch ($defender->Element()->Name()) {
+    //     case "Fire":
+    //         return $attacker->Damage() * $attacker->Element()->fireDamageMultiplier;
+    //     case "Water":
+    //         return $attacker->Damage() * $attacker->Element()->waterDamageMultiplier;
+    //     case "Corruption":
+    //         return $attacker->Damage() * $attacker->Element()->corruptionDamageMultiplier;
+    //     case "Wind":
+    //         return $attacker->Damage() * $attacker->Element()->windDamageMultiplier;
+    //     case "Earth":
+    //         return $attacker->Damage() * $attacker->Element()->earthDamageMultiplier;
+    //     case "Basic":
+    //         return $attacker->Damage();
+    //     default:
+    //         echo "Invalid element|applyElementalDamage";
+    //         die;
+    public abstract function dialog(): string;
 }
