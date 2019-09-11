@@ -9,6 +9,7 @@ abstract class BattleManager
 {
     public static function battle(Hero $hero, Unit $enemy)
     {
+        echo "{$hero->Name()} have encountered an enemy.\n";
         while (true) {
             $hero->battleOptions($enemy);
             sleep(1);
@@ -31,6 +32,7 @@ abstract class BattleManager
     private static function victorious(Hero $hero)
     {
         echo "{$hero->Name()} emerged victorious.\n";
+        sleep(1);
     }
 
     //dialog for when the player loses a battle
@@ -38,6 +40,7 @@ abstract class BattleManager
     {
         echo "You died....";
         echo "Game Over";
+        sleep(1);
         return;
     }
 }

@@ -61,7 +61,7 @@ class Hero extends Unit
             default:
                 readline("Invalid input, try again.");
                 system('clear');
-                battleOptions($this, $enemy);
+                $this->battleOptions($enemy);
         }
     }
 
@@ -71,12 +71,13 @@ class Hero extends Unit
      */
     function swapElementDialog(Unit $enemy)
     {
-        $prompt  = "Which element do you want to switch?\n";
-        $prompt .= "fire  - Switch to Fire\n";
-        $prompt .= "water - Switch to Water\n";
+        $prompt  = "Which element do you want to switch? \n";
+        $prompt .= "fire  - Switch to Fire \n";
+        $prompt .= "water - Switch to Water \n";
+        $prompt .= "earth - Switch to Earth \n";
         $prompt .= "wind  - Switch to Wind\n";
-        $prompt .= "earth - Switch to Earth\n";
-        $prompt .= "back  - back to other options \n";
+        $prompt .= "-------------------------\n";
+        $prompt .= "back - go back to other options\n";
         $prompt .= "Choose an option: ";
         $input = readline($prompt);
         switch ($input) {
@@ -96,13 +97,16 @@ class Hero extends Unit
                 system('clear');
                 $this->switchToElement("Earth");
                 break;
+            case "back":
+                system('clear');
+                $this->battleOptions($enemy);
+                return;
             default:
                 system('clear');
                 readline("Invalid input, try again.");
                 system('clear');
-                $this->displayInfo();
-                $enemy->displayInfo();
                 $this->swapElementDialog($enemy);
+                return;
         }
         echo "You swapped to " . $this->Element()->Name() . " Element.\n";
     }
