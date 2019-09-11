@@ -36,4 +36,74 @@ class Hero extends Unit
     {
         $this->element = $this->elements[$element];
     }
+    public function battleOptions(Unit $enemy)
+    {
+        echo "-------------------------------------\n";
+        $this->displayInfo();
+        echo "VS.\n";
+        $enemy->displayInfo();
+        echo "-------------------------------------\n";
+        $prompt = "What would you like to do?\n";
+        $prompt .= "atk  - Attack the enemy\n";
+        $prompt .= "swap - swaps between acquired elements\n";
+        $prompt .= "select option: ";
+        $input = readline($prompt);
+        echo "-------------------------------------\n";
+        switch ($input) {
+            case "atk":
+                system('clear');
+                $this->attack($enemy);
+                break;
+            case "swap":
+                system('clear');
+                $this->swapElementDialog($enemy);
+                break;
+            default:
+                readline("Invalid input, try again.");
+                system('clear');
+                battleOptions($this, $enemy);
+        }
+    }
+
+    /**
+     * an extended options dialog from battle options
+     * this will show whenever the player decides to use "swap" command
+     */
+    function swapElementDialog(Unit $enemy)
+    {
+        $prompt  = "Which element do you want to switch?\n";
+        $prompt .= "fire  - Switch to Fire\n";
+        $prompt .= "water - Switch to Water\n";
+        $prompt .= "wind  - Switch to Wind\n";
+        $prompt .= "earth - Switch to Earth\n";
+        $prompt .= "back  - back to other options \n";
+        $prompt .= "Choose an option: ";
+        $input = readline($prompt);
+        switch ($input) {
+            case "fire":
+                system('clear');
+                $this->switchToElement("Fire");
+                break;
+            case "water":
+                system('clear');
+                $this->switchToElement("Water");
+                break;
+            case "wind":
+                system('clear');
+                $this->switchToElement("Wind");
+                break;
+            case "earth":
+                system('clear');
+                $this->switchToElement("Earth");
+                break;
+            default:
+                system('clear');
+                readline("Invalid input, try again.");
+                system('clear');
+                $this->displayInfo();
+                $enemy->displayInfo();
+                $this->swapElementDialog($enemy);
+        }
+        echo "You swapped to " . $this->Element()->Name() . " Element.\n";
+    }
 }

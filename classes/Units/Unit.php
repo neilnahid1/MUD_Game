@@ -56,10 +56,13 @@ class Unit
         $description .= "Damage: $this->damage\n";
         return $description;
     }
-    public function displayInfo(){
+    public function displayInfo()
+    {
         echo "\033[0;36m Name: $this->name\n\033[0m";
         echo "\033[0;32m Health: $this->health\n\033[0m";
         echo "\033[0;31m Damage: $this->damage\n\033[0m";
+        echo "\033[0;34m Element: {$this->element->Name()}\n\033[0m";
+        echo "\033[1;33m Race: {$this->race->Name()}\n\033[0m";
     }
     /**
      * returns a string of dialog based on race and element
@@ -69,7 +72,6 @@ class Unit
     {
         return $this->race->dialog() . "\n" . $this->element->dialog();
     }
-
     /**
      * attacks and damages enemy
      * @param Unit $enemy the unit that will be attacked.
@@ -90,6 +92,6 @@ class Unit
     {
         $this->health -= $damage;
         if ($this->health <= 0)
-            echo $this->name . " is dead.";
+            echo $this->name . " is dead.\n";
     }
 }
