@@ -15,8 +15,8 @@ main();
 function main()
 {
     //initialise the hero and a sample unit
-    $hero = UnitBuilder::buildHero("Elf", "Physical", "Neil", 1);
-    $unit = UnitBuilder::BuildUnit("Dwarf", "Earth", 1);
+    $hero = UnitBuilder::buildHero("Elf", "Physical", "Neil");
+    $unit = UnitBuilder::BuildUnit("Dwarf", "Earth");
     
     //pre populate the elements acquired by the hero
     $hero->elements['Fire'] = new Fire();
