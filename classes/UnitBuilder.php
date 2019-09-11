@@ -34,7 +34,7 @@ abstract class UnitBuilder
     {
         //generate a random race
         $raceObject = self::getRaceInstance((string) random_int(0, 2));
-        $elementObject = self::getElementInstance((string) random_int(0, 6));
+        $elementObject = self::getElementInstance((string) random_int(0, 5));
         return new Unit(UNIT_BASE_HEALTH, UNIT_BASE_DAMAGE, $raceObject, $elementObject);
     }
     /**
@@ -92,7 +92,6 @@ abstract class UnitBuilder
             case "5":
             case "Physical":
                 return new Physical();
-            case "6":
             default:
                 echo "invalid element";
                 die;
