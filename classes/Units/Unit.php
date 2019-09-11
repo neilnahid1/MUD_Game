@@ -70,7 +70,7 @@ class Unit
      */
     public function dialog()
     {
-        return $this->race->dialog() . "\n" . $this->element->dialog();
+        return $this->race->dialog() . "\n" . $this->element->dialog(). "!\n";
     }
     /**
      * attacks and damages enemy
@@ -80,7 +80,7 @@ class Unit
     {
         echo "$this->name hits " . $enemy->Name() . "\n";
         $damage =  $this->element->applyElementResistance($this, $enemy); // applies the element resistance
-        echo "\033[0;31m It deals $damage.\n\033[0m";
+        echo "\033[0;31m It deals $damage {$this->element->Name()} damage.\n\033[0m";
         $enemy->receiveDamage($damage);
     }
 

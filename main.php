@@ -14,16 +14,15 @@ use Classes\Units\Unit;
 main();
 function main()
 {
-    //initialise the hero and a sample unit
+    //initialise the hero
     $hero = UnitBuilder::buildHero("Elf", "Physical", "Neil");
-    $unit = UnitBuilder::BuildUnit("Dwarf", "Earth");
-    
     //pre populate the elements acquired by the hero
     $hero->elements['Fire'] = new Fire();
     $hero->elements['Water'] = new Water();
     $hero->elements['Earth'] = new Earth();
     $hero->elements['Wind'] = new Wind();
-    BattleManager::battle($hero,$unit);
-    echo $hero->dialog();
-    die;
+    while ($hero->Health()>0) {
+        $unit = UnitBuilder::BuildRandomUnit();
+        BattleManager::battle($hero, $unit);
+    }
 }
