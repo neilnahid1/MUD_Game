@@ -1,5 +1,5 @@
 <?php
-include_once "./autoload.php";
+include_once "./vendor/autoload.php";
 include_once "./Classes/Settings.php";
 
 use Classes\Elements\Earth;
@@ -10,19 +10,24 @@ use Classes\Managers\BattleManager as BattleManager;
 use Classes\UnitBuilder as UnitBuilder;
 use Classes\Units\Hero;
 use Classes\Units\Unit;
+use Classes\Rooms;
+use Classes\Rooms\Map;
 
 main();
 function main()
 {
-    //initialise the hero
-    $hero = UnitBuilder::buildHero("Elf", "Physical", "Neil");
-    //pre populate the elements acquired by the hero
-    $hero->elements['Fire'] = new Fire();
-    $hero->elements['Water'] = new Water();
-    $hero->elements['Earth'] = new Earth();
-    $hero->elements['Wind'] = new Wind();
-    while ($hero->Health()>0) {
-        $unit = UnitBuilder::BuildRandomUnit();
-        BattleManager::battle($hero, $unit);
-    }
+    // //initialise the hero
+    // $hero = UnitBuilder::buildHero("Elf", "Physical", "Neil");
+    // //pre populate the elements acquired by the hero
+    // $hero->elements['Fire'] = new Fire();
+    // $hero->elements['Water'] = new Water();
+    // $hero->elements['Earth'] = new Earth();
+    // $hero->elements['Wind'] = new Wind();
+    // while ($hero->Health()>0) {
+    //     $unit = UnitBuilder::BuildRandomUnit();
+    //     BattleManager::battle($hero, $unit);
+    // }
+
+    $map = new Map(5,5,25);
+    $map->show();
 }
