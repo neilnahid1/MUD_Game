@@ -4,28 +4,28 @@ namespace Classes\Rooms;
 
 class Coordinate
 {
-    public $xPos;
-    public $yPos;
+    public $X;
+    public $Y;
 
-    function __construct(int $xPos, int $yPos)
+    function __construct(int $X, int $Y)
     {
-        $this->xPos = $xPos;
-        $this->yPos = $yPos;
+        $this->X = $X;
+        $this->Y = $Y;
     }
     public function moveLeft()
     {
-        $this->xPos -= 1;
+        $this->X -= 1;
     }
     public function moveUp()
     {
-        $this->yPos += 1;
+        $this->Y += 1;
     }
     public function moveRight()
     {
-        $this->xPos += 1;
+        $this->X += 1;
     }
     public function moveDown()
     {
-        $this->yPos -= 1;
+        $this->Y -= 1;
     }
 }
