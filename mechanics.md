@@ -56,6 +56,8 @@ On top of the base stats which is health and damage, the character also have a p
 	Earth counters Wind
 	Wind counters Water
 	Water Counters Fire
+	Corruption Counters all
+	Physical has no weakness(except corruption) and counter
 	
 ## 6. Progression
 The player needs to acquire the 4 elements in order to unlock the final door for the final boss.
