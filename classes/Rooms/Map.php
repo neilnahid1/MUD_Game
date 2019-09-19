@@ -17,7 +17,7 @@ class Map
     {
         $this->sizeX = $sizeX;
         $this->sizeY = $sizeY;
-        $this->populateMap($numOfNormalRooms);
+        $this->populateMap(5*5>$numOfNormalRooms?$numOfNormalRooms:5*5);
     }
     public function show()
     {
@@ -61,13 +61,13 @@ class Map
     function filterPossibleSteps(Coordinate $currentCoordinate): array
     {
         //validate possible steps
-        if ($currentCoordinate->xPos > 0)
+        if ($currentCoordinate->xPos > 0 )
             $validSteps[] = 'left';
-        if ($currentCoordinate->xPos < $this->sizeX)
+        if ($currentCoordinate->xPos < $this->sizeX-1)
             $validSteps[] = 'right';
         if ($currentCoordinate->yPos > 0)
             $validSteps[] = 'down';
-        if ($currentCoordinate->yPos < $this->sizeY)
+        if ($currentCoordinate->yPos < $this->sizeY-1)
             $validSteps[] = 'up';
         return $validSteps;
     }

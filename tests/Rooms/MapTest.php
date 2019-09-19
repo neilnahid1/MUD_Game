@@ -9,7 +9,7 @@ class MapTest extends TestCase{
 
     private $map;
     public function setUp():void{
-        $this->map = new Classes\Rooms\Map(5,5,10);
+        $this->map = new Classes\Rooms\Map(5,5,26);
     }
 
 
@@ -20,6 +20,6 @@ class MapTest extends TestCase{
         foreach($this->map->rooms as $type){
             $count += count($type);
         }
-        $this->assertEquals($count,10);
+        $this->assertLessThanOrEqual($count,25);
     }
 }
