@@ -6,7 +6,7 @@ class Dwarf extends Race
 {
     function __construct()
     {
-        parent::__construct(1.50, 0.50, "Dwarf");
+        parent::__construct(1.50, 1.0, "Dwarf");
     }
     public function dialog()
     {

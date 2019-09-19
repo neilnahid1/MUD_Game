@@ -5,7 +5,7 @@ class Human extends Race
 {
     function __construct()
     {
-        parent::__construct(1.0, 1.0,"Human");
+        parent::__construct(1.25, 1.25,"Human");
     }
     public function dialog()
     {

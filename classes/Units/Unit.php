@@ -20,10 +20,10 @@ class Unit
         Element $element
     ) {
         $this->name = $element->Name() . " " . $race->Name();
-        $this->health = $health;
-        $this->damage = $damage;
         $this->race = $race;
         $this->element = $element;
+        $this->setDamage($damage);
+        $this->setHealth($health);
     }
     # GETTER METHODS
     public function Health()
@@ -45,6 +45,13 @@ class Unit
     public function Race(): Race
     {
         return $this->race;
+    }
+    public function setDamage(int $damage)
+    {
+        $this->damage = $damage * $this->race->DamageMultiplier();
+    }
+    public function setHealth(int $health){
+        $this->health = $health * $this->race->HealthMultiplier();
     }
     # END OF GETTERS
     # START OF SETTERS
@@ -70,7 +77,7 @@ class Unit
      */
     public function dialog()
     {
-        return $this->race->dialog() . "\n" . $this->element->dialog(). "!\n";
+        return $this->race->dialog() . "\n" . $this->element->dialog() . "!\n";
     }
     /**
      * attacks and damages enemy

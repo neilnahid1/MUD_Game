@@ -6,7 +6,7 @@ class Elf extends Race
 {
     function __construct()
     {
-        parent::__construct(0.50, 1.50, "Elf");
+        parent::__construct(1.0, 1.50, "Elf");
     }
 
     function dialog()

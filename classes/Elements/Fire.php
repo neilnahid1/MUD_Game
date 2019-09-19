@@ -14,7 +14,7 @@ class Fire extends Element
         # negative values amplifies damage
         parent::__construct(
             "Fire", # name of the element
-            0.0,    # neutral resistance percent
+            0.0,    # physcal resistance percent
             0.75,   # earth resistance percent
             -1.0,   # water resistance percent
             1.0,    # fire resistance percent

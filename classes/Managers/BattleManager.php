@@ -5,6 +5,7 @@ namespace Classes\Managers;
 use Classes\Units\Hero;
 use Classes\Units\Unit;
 
+
 abstract class BattleManager
 {
     public static function battle(Hero $hero, Unit $enemy)
