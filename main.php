@@ -28,6 +28,6 @@ function main()
     //     BattleManager::battle($hero, $unit);
     // }
 
-    $map = new Map(10,10,25);
+    $map = new Map(3,3,5);
     $map->show();
 }

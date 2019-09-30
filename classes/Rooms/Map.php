@@ -13,11 +13,13 @@ class Map
     public $sizeX;
     public $sizeY;
     public $rooms;
+    public $currentLocation;
     function __construct(int $sizeX, int $sizeY, int $numOfNormalRooms)
     {
         $this->sizeX = $sizeX;
         $this->sizeY = $sizeY;
-        $this->populateMap($sizeX*$sizeY>$numOfNormalRooms?$numOfNormalRooms:$sizeX*$sizeY);
+        $this->populateMap($sizeX * $sizeY > $numOfNormalRooms ? $numOfNormalRooms : $sizeX * $sizeY);
+        $this->currentLocation = new Coordinate(0,0);
     }
     /**
      * displays the information of the map
@@ -27,16 +29,30 @@ class Map
      */
     public function show()
     {
-        for ($x = 0; $x < $this->sizeX; $x++) {
+        // for ($x = 0; $x < $this->sizeX; $x++) {
+        //     echo "\n";
+        //     for ($y = 0; $y < $this->sizeY; $y++) {
+        //         if (isset($this->rooms[$x][$y])) {
+        //             echo "[ ]";
+        //         } else {
+        //             echo "[X]";
+        //         }
+        //     }
+        // }
+        for($y = ($this->sizeY-1);$y>=0;$y--){
             echo "\n";
-            for ($y = 0; $y < $this->sizeY; $y++) {
+            for ($x = 0; $x < $this->sizeX; $x++) {
                 if (isset($this->rooms[$x][$y])) {
+                    if($this->rooms[$x][$y]->getCoordinate()==$this->currentLocation)
+                    echo "[C]";
+                    else
                     echo "[ ]";
                 } else {
                     echo "[X]";
                 }
             }
         }
+
     }
     /**
      * steps on a next coordinate within the limits of the map's x and y size
@@ -67,13 +83,13 @@ class Map
     function filterPossibleSteps(Coordinate $coord): array
     {
         //validate possible steps
-        if ($coord->X > 0 )
+        if ($coord->X > 0)
             $validSteps[] = 'left';
-        if ($coord->X < $this->sizeX-1)
+        if ($coord->X < $this->sizeX - 1)
             $validSteps[] = 'right';
         if ($coord->Y > 0)
             $validSteps[] = 'down';
-        if ($coord->Y < $this->sizeY-1)
+        if ($coord->Y < $this->sizeY - 1)
             $validSteps[] = 'up';
         return $validSteps;
     }
@@ -82,24 +98,24 @@ class Map
      * creates a normal room at the position of the given coordinates
      * @param Coordinate $coord the coordinate on which the room will be spawned
      */
-    function createNormalRoom(Coordinate $c)
+    function createNormalRoom(Coordinate $coordinate)
     {
-        $this->rooms[$c->X][$c->Y] = new Room(new Coordinate($c->X, $c->Y));
+        $this->rooms[$coordinate->X][$coordinate->Y] = new Room($coordinate, true);
     }
     /**
      * populates the map with normal rooms
      * populate the map with the number of $normalRooms
      * @param int $normalRooms the number of normal rooms to populate
-     * @param Coordiante $coor the coordinate that will be used when stepping through the grid map
+     * @param Coordiante $coor the coordinate that the room is located
      */
     function populateNormalRooms(int $normalRooms, Coordinate $coor)
     {
         while ($normalRooms > 0) {
-            $this->nextStep($coor);
             if (!isset($this->rooms[$coor->X][$coor->Y])) {
                 $this->createNormalRoom($coor);
                 $normalRooms--;
             }
+            $this->nextStep($coor);
         }
     }
     /**
@@ -110,5 +126,15 @@ class Map
     {
         $startingCoordinate = new Coordinate(0, 0);
         $this->populateNormalRooms($normalRooms, $startingCoordinate);
+        $this->setStartingLocation();
+    }
+    /**
+     * sets the starting location of the player on the randomly-generated map.
+     */
+    function setStartingLocation(){
+        foreach($this->rooms as $rows){
+            foreach($rows as $room){
+            }
+        }
     }
 }
